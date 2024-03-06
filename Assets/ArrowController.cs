@@ -17,7 +17,7 @@ public class ArrowController : MonoBehaviour
         //フレームごとに等速で落下させる
         transform.Translate(0,-0.1f,0);
         //画面外に出たらオブジェクトを破棄する
-        if(transform.position.y<-0.5f){
+        if(transform.position.y < -5.0f){
             Destroy(gameObject);
         }    
         //当たり判定
