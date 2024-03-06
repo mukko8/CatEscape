@@ -5,10 +5,12 @@ using UnityEngine;
 public class ArrowController : MonoBehaviour
 {
     GameObject player;
+    AudioSource seSound;
     // Start is called before the first frame update
     void Start()
     {
         this.player=GameObject.Find("player");  
+        seSound=GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,6 +31,8 @@ public class ArrowController : MonoBehaviour
         float r2=1.0f;//プレイヤの半径
 
         if(d<r1+r2){
+            //衝突したときに音を出す
+            this.player.GetComponent<AudioSource>().Play();
             //監督スクリプトにプレイヤと衝突したことを伝える
             GameDirector director=GameObject.FindObjectOfType<GameDirector>();
             director.DecreaseHp();
